@@ -12,10 +12,10 @@ import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // plugins: [
-  //   Deno.env.get("NODE_ENV") === 'production' ? ApolloServerPluginLandingPageDisabled()
-  //     : ApolloServerPluginLandingPageLocalDefault()
-  // ]
+  plugins: [
+    Deno.env.get("NODE_ENV") === 'production' ? ApolloServerPluginLandingPageDisabled()
+      : ApolloServerPluginLandingPageLocalDefault()
+  ]
 });
 
 const app : express.app = express();
